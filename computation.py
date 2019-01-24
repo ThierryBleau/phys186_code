@@ -7,11 +7,15 @@ def comp1():
         print(y)
 
 def comp2():
-        for i in range(11,33):
-                y = 10**(-8*i+7)
-                print(i)
-                print(y)
+    for i in range(11,33):
+        y = 10**(-8*i+7)
+        print(i)
+        print(y)
 
-comp2()
+arc_secs = []
+def ly_star_distances():
+	for i in arc_secs:
+		ly = 3.26/i
+		print(ly)
 
-print(math.log(8 + 5.0/10,10))
+ly_star_distances()
