@@ -18,4 +18,15 @@ def ly_star_distances():
 		ly = 3.26/i
 		print(ly)
 
-ly_star_distances()
+app_mag = [6.114,3.59,9.842]
+parallax = [0.0724,0.0112,0.012]
+
+def luminosity(mag,par):
+	for i in mag:
+		print(i)
+		pari = par[mag.index(i)]
+		abs_mag = i + 5 + 5*math.log10(pari)
+		lum = math.pow(10,(4.8-abs_mag)/2.5)
+		print(lum)
+
+luminosity(app_mag,parallax)
