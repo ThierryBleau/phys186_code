@@ -26,6 +26,7 @@ def luminosity(mag,par):
 		abs_mag = i + 5 + 5*math.log10(pari)
 		lum = math.pow(10,(4.8-abs_mag)/2.5)
 		print(lum)
+		return(lum)
 
 temps = [3371,14447,705,17626,2894]
 def peak_wavelength(temp):
@@ -38,6 +39,28 @@ def temperature(wl):
 	for i in wl:
 		temp = 2897769.5/i
 		print(temp)
+		return(temp)
+
+def lifetime(mass):
+	lt = pow(10,10)*pow(mass,-2.5)
+	print(lt)
+
+def radius(lum,temp):
+	r = pow(lum,1/2)/pow(temp/5800,2)
+	print(r)
+
+def lum_from_mass(mass):
+	lum = pow(mass,3.5)
+	print(lum)
+
+def mass_from_lum(lum):
+	mass = pow(lum,1/3.5)
+	print(mass)
 
 
-peak_wavelength([5800,288,310])
+ly_star_distances([0.01])
+luminosity([6.91],[0.01])
+temperature([345.1])
+mass_from_lum(14.32)
+radius(14.32,8396.9)
+lifetime(2.14)
