@@ -57,10 +57,15 @@ def mass_from_lum(lum):
 	mass = pow(lum,1/3.5)
 	print(mass)
 
+brightness_drops = [0.005,0.05,0.5,0.03,0.03,0.03]
+radii = [1,1,1,0.5,1,10]
 
-ly_star_distances([0.01])
-luminosity([6.91],[0.01])
-temperature([345.1])
-mass_from_lum(14.32)
-radius(14.32,8396.9)
-lifetime(2.14)
+def planet_radii(drops,rads):
+	for i in range(6):
+		earth_radius = (drops[i]/100)**(1/2)*rads[i]*109
+		print(earth_radius)
+		jupiter_radius = earth_radius*0.0892
+		print(jupiter_radius)
+	return
+
+planet_radii(brightness_drops,radii)
