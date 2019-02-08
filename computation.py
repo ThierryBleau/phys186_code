@@ -68,4 +68,31 @@ def planet_radii(drops,rads):
 		print(jupiter_radius)
 	return
 
-planet_radii(brightness_drops,radii)
+#planet_radii([0.14,0,0,0,0,0,0],[2.83,0,0,0,0,0,0])
+
+def vol_from_radius(rads):
+	for i in rads:
+		volume = (4/3)*(math.pi)*(i**3)
+		print(volume)
+	return
+
+def density(masses,volumes):
+	for i in range(len(masses)):
+		density = masses[i]/volumes[i]
+		print(density)
+	return
+
+def density_from_radii(radii,masses):
+	for i in range(len(radii)):
+		density = masses[i]/((4/3)*math.pi*radii[i]**3)
+		print(density)
+	return
+		
+
+radii = [10**8]
+vol_from_radius(radii)
+
+masses = [2.09e24,4.19e24,12.56e24,33.51e24]
+radii = [10**8,10**8,10**8,10**8]
+
+density_from_radii(radii,masses)
