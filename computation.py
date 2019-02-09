@@ -57,8 +57,8 @@ def mass_from_lum(lum):
 	mass = pow(lum,1/3.5)
 	print(mass)
 
-brightness_drops = [0.005,0.05,0.5,0.03,0.03,0.03]
-radii = [1,1,1,0.5,1,10]
+brightness_drops = [0.06,0.05,0.5,0.03,0.03,0.03]
+radii = [2.36,1,1,0.5,1,10]
 
 def planet_radii(drops,rads):
 	for i in range(6):
@@ -68,7 +68,7 @@ def planet_radii(drops,rads):
 		print(jupiter_radius)
 	return
 
-#planet_radii([0.14,0,0,0,0,0,0],[2.83,0,0,0,0,0,0])
+planet_radii([0.06,0,0,0,0,0,0],[2.36,0,0,0,0,0,0])
 
 def vol_from_radius(rads):
 	for i in rads:
@@ -87,12 +87,25 @@ def density_from_radii(radii,masses):
 		density = masses[i]/((4/3)*math.pi*radii[i]**3)
 		print(density)
 	return
-		
 
-radii = [10**8]
-vol_from_radius(radii)
+def star_velocity(max_line_shift,rest_wavelength):
+	velocity = (max_line_shift/rest_wavelength)*3e8
+	print(velocity)
+	return(velocity)
 
-masses = [2.09e24,4.19e24,12.56e24,33.51e24]
-radii = [10**8,10**8,10**8,10**8]
+def mass_from_velocity_earth(velocity,orbit,star_mass):
+	mass = ((velocity**2)*(orbit)*(star_mass))**(1/2)*(11.177)
+	print(mass)
+	return
 
-density_from_radii(radii,masses)
+def mass_from_velocity_jupiter(velocity,orbit,star_mass):
+	mass = ((velocity**2)*(orbit)*(star_mass))**(1/2)*(0.0352)
+	print(mass)
+	return
+
+
+
+shifts = 0.000007
+
+mass_from_velocity_earth(star_velocity(shifts,656.3),0.3822639055257155,3.02)
+mass_from_velocity_jupiter(star_velocity(shifts,656.3),0.3822639055257155,3.02)
