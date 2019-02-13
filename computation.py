@@ -68,8 +68,6 @@ def planet_radii(drops,rads):
 		print(jupiter_radius)
 	return
 
-planet_radii([0.06,0,0,0,0,0,0],[2.36,0,0,0,0,0,0])
-
 def vol_from_radius(rads):
 	for i in rads:
 		volume = (4/3)*(math.pi)*(i**3)
@@ -102,10 +100,20 @@ def mass_from_velocity_jupiter(velocity,orbit,star_mass):
 	mass = ((velocity**2)*(orbit)*(star_mass))**(1/2)*(0.0352)
 	print(mass)
 	return
+def flux_at_a_planet(star_lum,orbit):
+	flux = star_lum/(4*math.pi*(orbit)**2)
+	print(flux)
+	return(flux)
 
+def effective_temperature(energy,albedo):
+	temp = ((energy*(1-albedo))/(4*5.67e-8))**(0.25)
+	return(temp)
 
+#print(flux_at_a_planet(1886*3.839e26,1.950*1.496e11))
 
-shifts = 0.000007
+lums = [3.53,0.57,4.41]
+orbits = [2.07,2.76,0.74]
+albedos = [0.46,0.59,0.75]
 
-mass_from_velocity_earth(star_velocity(shifts,656.3),0.3822639055257155,3.02)
-mass_from_velocity_jupiter(star_velocity(shifts,656.3),0.3822639055257155,3.02)
+for i in range(len(lums)):
+	print(effective_temperature(flux_at_a_planet(lums[i]*3.839e26,orbits[i]*1.496e11),albedos[i]))
