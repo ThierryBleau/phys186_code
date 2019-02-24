@@ -115,5 +115,5 @@ lums = [3.53,0.57,4.41]
 orbits = [2.07,2.76,0.74]
 albedos = [0.46,0.59,0.75]
 
-for i in range(len(lums)):
-	print(effective_temperature(flux_at_a_planet(lums[i]*3.839e26,orbits[i]*1.496e11),albedos[i]))
+
+print(effective_temperature(flux_at_a_planet(21.1*3.839e26,3.92*1.496e11),0.62))
